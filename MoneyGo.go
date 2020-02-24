@@ -6,11 +6,18 @@ import (
 
 func main() {
 	//Declare a variable that holds the options entered by the user
-	var key string
+	key := ""
 
 	//Declare a variable to control whether to exit the for loop
 	loop := true
-
+	//Declare the scale
+	balance := 1000.0
+	//Amount of each income and expense
+	money := 0.0
+	//note of each income and expense
+	note := ""
+	//Detail of each income and expense, when we use money, only change "details"
+	details := "Income/Expenditure\tBalance\t\tAmount\tNote"
 	//Show main menu
 	for {
 
@@ -19,7 +26,7 @@ func main() {
 		fmt.Println("          2 Registered Income")
 		fmt.Println("          3 Registered Expenditure")
 		fmt.Println("          4 Exit")
-		fmt.Println("Please enter your order number: ")
+		fmt.Println("Please enter your order number (1-4): ")
 
 		fmt.Scanln(&key)
 
@@ -27,10 +34,18 @@ func main() {
 
 		case "1" : 
 			fmt.Println("------My Income and Expense Detail-------")
+			fmt.Println(details)
 		case "2" :
-			fmt.Println("------My Income and Expense Detail-------")
+			fmt.Println("Amount of income: ")
+			fmt.Scanln(&money)
+			balance += money //Modify account balance
+
+			fmt.Println("Note of income: ")
+			fmt.Scanln(&note)
+			//Splicing revenue into “details”
+			details += fmt.Sprintf("\nIncome\t\t\t%v\t\t%v\t%v", balance, money, note)
 		case "3" :
-			fmt.Println("------My Income and Expense Detail-------")
+			fmt.Println("------Registered Expenditure------M")
 		case "4" :
 			//break We can't break here because it only stop "switch"， not for loop
 			loop = false
