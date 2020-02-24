@@ -14,12 +14,16 @@ money management apps in Golang
 4 Quitter
 
 ---------------------Features 1----------------------
+Show Main menu and Exit
 
+Accoding to our features , print Main menu. Exit the app when user choise 4
 ---------------------Features 2----------------------
 Expense Detail and Registered Income
 
 1）因为需要显示明细，我们定义一个变量details string来记录
 2）还需要定义变量来记录余额（balance），每次收支的金额（money），每次收支的说明（note）
 ---------------------Features 3----------------------
+Registered Expenditure (just like feature 2)
+
 ---------------------Features 4----------------------
 

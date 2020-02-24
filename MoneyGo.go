@@ -44,8 +44,23 @@ func main() {
 			fmt.Scanln(&note)
 			//Splicing revenue into “details”
 			details += fmt.Sprintf("\nIncome\t\t\t%v\t\t%v\t%v", balance, money, note)
+			fmt.Println("Successfully added new details!")
+
 		case "3" :
-			fmt.Println("------Registered Expenditure------M")
+			fmt.Println("Amount of Expenditure： ")
+			AmountEx:fmt.Scanln(&money)
+			if money > balance {
+				fmt.Println("Sorry! You don't have enough money！！！\nPlease enter another amount: ")
+				goto AmountEx
+			} else {
+				balance -= money
+				fmt.Println("Note of Expenditure： ")
+				fmt.Scanln(&note)
+				//Splicing revenue into “details”
+				details += fmt.Sprintf("\nExpenditure\t\t%v\t\t%v\t%v", balance, money, note)
+				fmt.Println("Successfully added new details!")
+			}
+
 		case "4" :
 			//break We can't break here because it only stop "switch"， not for loop
 			loop = false
