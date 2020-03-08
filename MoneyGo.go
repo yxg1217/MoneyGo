@@ -7,7 +7,6 @@ import (
 func main() {
 	//Declare a variable that holds the options entered by the user
 	key := ""
-
 	//Declare a variable to control whether to exit the for loop
 	loop := true
 	//Declare the scale
@@ -16,6 +15,8 @@ func main() {
 	money := 0.0
 	//note of each income and expense
 	note := ""
+	//Define a variable to record whether there is income and expenditure behavior
+	flag := false
 	//Detail of each income and expense, when we use money, only change "details"
 	details := "Income/Expenditure\tBalance\t\tAmount\tNote"
 	//Show main menu
@@ -34,7 +35,13 @@ func main() {
 
 		case "1" : 
 			fmt.Println("------My Income and Expense Detail-------")
-			fmt.Println(details)
+			if flag {
+				fmt.Println(details)
+			} else {
+				
+				fmt.Println("No current income and expenditure details!")
+			}
+			
 		case "2" :
 			fmt.Println("Amount of income: ")
 			fmt.Scanln(&money)
@@ -45,6 +52,7 @@ func main() {
 			//Splicing revenue into “details”
 			details += fmt.Sprintf("\nIncome\t\t\t%v\t\t%v\t%v", balance, money, note)
 			fmt.Println("Successfully added new details!")
+			flag = true
 
 		case "3" :
 			fmt.Println("Amount of Expenditure： ")
@@ -59,11 +67,25 @@ func main() {
 				//Splicing revenue into “details”
 				details += fmt.Sprintf("\nExpenditure\t\t%v\t\t%v\t%v", balance, money, note)
 				fmt.Println("Successfully added new details!")
+				flag = true
 			}
 
 		case "4" :
 			//break We can't break here because it only stop "switch"， not for loop
-			loop = false
+			fmt.Println("Are you sure you want to quit? y/n")
+			choice := ""
+			for {
+				fmt.Scanln(&choice)
+				if choice == "y" || choice == "n" {
+					break
+				}
+				fmt.Println("Please check your input and try again: y/n")
+			}
+
+			if choice == "y" {
+				loop = false
+			}
+			
 		default :
 			fmt.Println("Oups! Please enter the correct option!")
 		}

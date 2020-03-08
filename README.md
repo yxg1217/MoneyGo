@@ -1,17 +1,12 @@
 # MoneyGo
 money management apps in Golang
-*---------------------------------------
 
+## 面向过程test
 ----------My App To Track Spending----------
 1 Income and Expense Detail
 2 Registered Income
 3 Registered Expenditure
 4 Exit
-
-1 Détail des revenus et dépenses
-2 Revenu enregistré
-3 Dépenses enregistrées
-4 Quitter
 
 ---------------------Features 1----------------------
 Show Main menu and Exit
@@ -27,3 +22,12 @@ Registered Expenditure (just like feature 2)
 
 ---------------------Features 4----------------------
 
+## 面向对象编程 Object-Oriented Programming
+
+把记账软件的功能,把所有的字段封装到一个结构体中,然后把相应的方法绑定到结构体中,最后提供一个NewFamilyAccount工厂模式的构造方法,返回一个实例,来实现记账和明细
+结构体的名字:FamilyAccount
+通过在main方法中创建一个结构体familyAccount实例,再调用菜单,实现记账功能
+
+Encapsulate the functions of the app into a structure, and then call the methods of the structure to implement accounting and details
+Structure name: FamilyAccount
+Realize the accounting function by creating a structure familyAccount instance in the main method
